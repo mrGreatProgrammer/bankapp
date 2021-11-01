@@ -3,6 +3,7 @@ package card
 import (
 	"bank/pkg/bank/types"
 	// "fmt"
+	// "fmt"
 )
 
 // const withdrawLimit = 20_000_00
@@ -75,20 +76,42 @@ import (
 
 // }
 
-
 func Total(cards []types.Card) types.Money {
 	// var totalSum
 	var t types.Money
 	for _, v := range cards {
 		if !v.Active {
-			t +=0
+			t += 0
 		} else if v.Balance < 0 {
-			t+=0
-		} else{
+			t += 0
+		} else {
 			t += v.Balance
 		}
 		// t += v.Balance
 		// fmt.Println(v.Balance)
 	}
 	return t
+}
+
+func PaymentSources(card []types.Card) []types.PaymentSource{
+	// var ps types.PaymentSource
+	var c = []types.PaymentSource{
+		{
+			Type:    "card",
+			Number:  "5058 xxxx xxxx 8888",
+			Balance: 10000,
+		},
+		{
+			Type:    "card",
+			Number:  "5058 xxxx xxxx 9999",
+			Balance: -10_000_00,
+		},
+		{
+			Type:    "card",
+			Number:  "5058 xxxx xxxx 7777",
+			Balance: 10_000_00,
+		},
+	}
+	return c
+
 }

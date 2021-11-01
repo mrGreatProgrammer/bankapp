@@ -1,5 +1,7 @@
 package types
 
+// import "bank/pkg/bank/types"
+
 type Money int64
 
 type Currency string
@@ -13,17 +15,23 @@ const (
 type PAN string
 
 type Card struct {
-	ID int
-	PAN PAN
-	Balance Money
+	ID         int
+	PAN        PAN
+	Balance    Money
 	MinBalance Money
-	Currency Currency
-	Color string
-	Name string
-	Active bool
+	Currency   Currency
+	Color      string
+	Name       string
+	Active     bool
 }
 
 type Payment struct {
-	ID int
+	ID     int
 	Amount Money
+}
+
+type PaymentSource struct {
+	Type    string // 'card'
+	Number  string // номер вида '5058 xxxx xxxx 8888'
+	Balance Money
 }
