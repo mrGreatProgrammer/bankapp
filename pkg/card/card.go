@@ -94,24 +94,24 @@ func Total(cards []types.Card) types.Money {
 	return t
 }
 
-type Paymentsource struct {
+type PaymentSource struct {
 	Type    string // 'card'
 	Number  string // номер вида '5058 xxxx xxxx 8888'
 	Balance types.Money
 }
 
-func PaymentSources(card []types.Card) []Paymentsource {
+func PaymentSources(card []types.Card) []PaymentSource {
 	// var ps types.PaymentSource
-	var c = []Paymentsource{
+	var c = []PaymentSource{
 		{
 			Type:    "card",
 			Number:  "5058 xxxx xxxx 8888",
-			Balance: 10000,
+			Balance: 100_00,
 		},
 		{
 			Type:    "card",
 			Number:  "5058 xxxx xxxx 9999",
-			Balance: -10_000_00,
+			Balance: 1_000_00,
 		},
 		{
 			Type:    "card",

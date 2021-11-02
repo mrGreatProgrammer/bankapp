@@ -24,7 +24,3 @@ func main() {
 
 	fmt.Println(cards)
 }
-
-
-
-// PAGE 54
