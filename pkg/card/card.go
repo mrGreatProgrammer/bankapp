@@ -3,6 +3,8 @@ package card
 import (
 	"bank/pkg/bank/types"
 	"fmt"
+	"strconv"
+	"strings"
 	// "fmt"
 	// "fmt"
 )
@@ -100,25 +102,55 @@ type PaymentSource struct {
 	Balance types.Money
 }
 
-func PaymentSources(card []types.Card) []PaymentSource {
-	// var ps types.PaymentSource
-	var c = []PaymentSource{
-		{
-			Type:    "card",
-			Number:  "5058 xxxx xxxx 8888",
-			Balance: 100_00,
-		},
-		{
-			Type:    "card",
-			Number:  "5058 xxxx xxxx 9999",
-			Balance: 1_000_00,
-		},
-		{
-			Type:    "card",
-			Number:  "5058 xxxx xxxx 7777",
-			Balance: 10_000_00,
-		},
+func tr() string{
+	var w = 5
+	var s string
+	var u = "5058 xxxx xxxx 8888"
+	var y string
+	for i := 0; i < w; i++ {
+		w--
+		s = strconv.Itoa(w)
+		y = strings.Replace(u, "8888", s, 5)
+		// fmt.Println(y)
 	}
+	return y
+}
+
+func PaymentSources(cards []types.Card) []PaymentSource {
+	// var ps types.PaymentSource
+	c := []PaymentSource{}
+	// {
+	// 	{
+	// 		Type:    "card",
+	// 		Number:  "5058 xxxx xxxx 8888",
+	// 		Balance: 100_00,
+	// 	},
+	// 	{
+	// 		Type:    "card",
+	// 		Number:  "5058 xxxx xxxx 9999",
+	// 		Balance: 1_000_00,
+	// 	},
+	// 	{
+	// 		Type:    "card",
+	// 		Number:  "5058 xxxx xxxx 7777",
+	// 		Balance: 10_000_00,
+	// 	},
+	// }
+
+	for _, card := range cards {
+		if card.Active && card.Balance > 0 {
+			c = append(c, PaymentSource{
+				Balance: card.Balance,
+				Number:  "5058 xxxx xxxx 8888",
+				Type:    "card",
+			})
+		}
+
+	}
+
+	tr()
+
+	// fmt.Println(c)
 
 	var t string
 
