@@ -2,6 +2,7 @@ package card
 
 import (
 	"bank/pkg/bank/types"
+	"fmt"
 	// "fmt"
 	// "fmt"
 )
@@ -93,9 +94,15 @@ func Total(cards []types.Card) types.Money {
 	return t
 }
 
-func PaymentSources(card []types.Card) []types.PaymentSource{
+type Paymentsource struct {
+	Type    string // 'card'
+	Number  string // номер вида '5058 xxxx xxxx 8888'
+	Balance types.Money
+}
+
+func PaymentSources(card []types.Card) []Paymentsource {
 	// var ps types.PaymentSource
-	var c = []types.PaymentSource{
+	var c = []Paymentsource{
 		{
 			Type:    "card",
 			Number:  "5058 xxxx xxxx 8888",
@@ -112,6 +119,14 @@ func PaymentSources(card []types.Card) []types.PaymentSource{
 			Balance: 10_000_00,
 		},
 	}
+
+	var t string
+
+	for i := 0; i < len(c); i++ {
+		t = c[i].Number
+		fmt.Println(t)
+	}
+
 	return c
 
 }

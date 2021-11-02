@@ -117,50 +117,52 @@ func ExampleTotal() {
 	cards := []types.Card{
 		{
 			Balance: 10_000_00,
-			Active: true,
+			Active:  true,
 		},
 		{
 			Balance: 10_000_00,
-			Active: true,
+			Active:  true,
 		},
 		{
 			Balance: -10_000_00,
-			Active: true,
+			Active:  true,
 		},
 		{
 			Balance: -10_000_00,
-			Active: false,
+			Active:  false,
 		},
 		{
 			Balance: 10_000_00,
-			Active: false,
+			Active:  false,
 		},
 	}
-	
+
 	fmt.Println(Total(cards))
 	//Output: 2000000
 }
 
-func Example_PaymPaymentSources() {
+func ExamplePaymentSources() {
 
 	cards := []types.Card{
 		{
 			Balance: 10_000_00,
-			Active: true,
+			Active:  true,
 		},
 		{
 			Balance: -10_000_00,
-			Active: true,
+			Active:  true,
 		},
 		{
 			Balance: 10_000_00,
-			Active: false,
+			Active:  false,
 		},
 	}
 
-	fmt.Println(PaymentSources(cards))
+	PaymentSources(cards)
 
 	//Output:
-	// 1000
-	
+	// 5058 xxxx xxxx 8888
+	// 5058 xxxx xxxx 9999
+	// 5058 xxxx xxxx 7777
+
 }
