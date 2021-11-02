@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	// "strings"
 	// "fmt"
 	// "fmt"
 )
@@ -80,7 +81,6 @@ import (
 // }
 
 func Total(cards []types.Card) types.Money {
-	// var totalSum
 	var t types.Money
 	for _, v := range cards {
 		if !v.Active {
@@ -90,8 +90,6 @@ func Total(cards []types.Card) types.Money {
 		} else {
 			t += v.Balance
 		}
-		// t += v.Balance
-		// fmt.Println(v.Balance)
 	}
 	return t
 }
@@ -102,55 +100,26 @@ type PaymentSource struct {
 	Balance types.Money
 }
 
-func tr() string{
-	var w = 5
-	var s string
-	var u = "5058 xxxx xxxx 8888"
-	var y string
-	for i := 0; i < w; i++ {
-		w--
-		s = strconv.Itoa(w)
-		y = strings.Replace(u, "8888", s, 5)
-		// fmt.Println(y)
-	}
-	return y
-}
-
 func PaymentSources(cards []types.Card) []PaymentSource {
-	// var ps types.PaymentSource
 	c := []PaymentSource{}
-	// {
-	// 	{
-	// 		Type:    "card",
-	// 		Number:  "5058 xxxx xxxx 8888",
-	// 		Balance: 100_00,
-	// 	},
-	// 	{
-	// 		Type:    "card",
-	// 		Number:  "5058 xxxx xxxx 9999",
-	// 		Balance: 1_000_00,
-	// 	},
-	// 	{
-	// 		Type:    "card",
-	// 		Number:  "5058 xxxx xxxx 7777",
-	// 		Balance: 10_000_00,
-	// 	},
-	// }
+	
+	var u = "5058 xxxx xxxx 8888"
+	var s string
+	var y string
 
 	for _, card := range cards {
 		if card.Active && card.Balance > 0 {
+			s = strconv.Itoa(int(card.Balance))
+			y = strings.Replace(u, "8888", s, 5)
+
 			c = append(c, PaymentSource{
 				Balance: card.Balance,
-				Number:  "5058 xxxx xxxx 8888",
+				Number:  y,
 				Type:    "card",
 			})
 		}
 
 	}
-
-	tr()
-
-	// fmt.Println(c)
 
 	var t string
 

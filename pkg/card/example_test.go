@@ -145,7 +145,11 @@ func ExamplePaymentSources() {
 
 	cards := []types.Card{
 		{
-			Balance: 10_000_10,
+			Balance: 999_99,
+			Active:  true,
+		},
+		{
+			Balance: 888_88,
 			Active:  true,
 		},
 		{
@@ -161,6 +165,7 @@ func ExamplePaymentSources() {
 	PaymentSources(cards)
 
 	//Output:
-	// 5058 xxxx xxxx 8888
+	// 	5058 xxxx xxxx 99999
+	// 5058 xxxx xxxx 88888
 
 }
