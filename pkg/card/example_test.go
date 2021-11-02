@@ -153,11 +153,11 @@ func ExamplePaymentSources() {
 			Active:  true,
 		},
 		{
-			Balance: -10_000_00,
+			Balance: -555_55,
 			Active:  true,
 		},
 		{
-			Balance: 10_000_00,
+			Balance: 444_44,
 			Active:  false,
 		},
 	}
