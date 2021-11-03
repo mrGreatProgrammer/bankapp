@@ -140,3 +140,32 @@ func ExampleTotal() {
 	fmt.Println(Total(cards))
 	//Output: 2000000
 }
+
+func ExamplePaymentSources() {
+
+	cards := []types.Card{
+		{
+			Balance: 999_99,
+			Active:  true,
+		},
+		{
+			Balance: 888_88,
+			Active:  true,
+		},
+		{
+			Balance: -555_55,
+			Active:  true,
+		},
+		{
+			Balance: 444_44,
+			Active:  false,
+		},
+	}
+
+	PaymentSources(cards)
+
+	//Output:
+	// 	5058 xxxx xxxx 99999
+	// 5058 xxxx xxxx 88888
+
+}

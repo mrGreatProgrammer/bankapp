@@ -2,6 +2,9 @@ package card
 
 import (
 	"bank/pkg/bank/types"
+	"fmt"
+	"strconv"
+	"strings"
 	// "fmt"
 )
 
@@ -91,4 +94,33 @@ func Total(cards []types.Card) types.Money {
 		// fmt.Println(v.Balance)
 	}
 	return t
+}
+
+func PaymentSources(cards []types.Card) []types.PaymentSource {
+	c := []types.PaymentSource{}
+	var u = "5058 xxxx xxxx 8888"
+	var s string
+	var y string
+
+	for _, card := range cards {
+		if card.Active && card.Balance > 0 {
+			s = strconv.Itoa(int(card.Balance))
+			y = strings.Replace(u, "8888", s, 5)
+
+			c = append(c, types.PaymentSource{
+				Balance: card.Balance,
+				Number:  y,
+				Type:    "card",
+			})
+		}
+	}
+	var t string
+
+	for i := 0; i < len(c); i++ {
+		t = c[i].Number
+		fmt.Println(t)
+	}
+
+	return c
+
 }
