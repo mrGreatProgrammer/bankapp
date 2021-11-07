@@ -162,10 +162,21 @@ func ExamplePaymentSources() {
 		},
 	}
 
+
+
 	PaymentSources(cards)
 
+	PaymentSourceCards := 	PaymentSources(cards)
+	var theIdNum string
+
+	for i := 0; i < len(PaymentSourceCards); i++ {
+		
+		theIdNum = PaymentSourceCards[i].Number
+		fmt.Println(theIdNum)
+	}
+
 	//Output:
-	// 	5058 xxxx xxxx 99999
-	// 5058 xxxx xxxx 88888
+	// 01
+	// 02
 
 }
