@@ -1,7 +1,5 @@
 package types
 
-// import "bank/pkg/types"
-
 type Money int64
 
 type Currency string

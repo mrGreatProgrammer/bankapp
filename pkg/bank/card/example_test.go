@@ -178,5 +178,4 @@ func ExamplePaymentSources() {
 	//Output:
 	// 01
 	// 02
-
 }

@@ -1,7 +1,6 @@
 package main
 
 import (
-	// "bank/pkg/bank/card"
 	"bank/pkg/bank/types"
 	"fmt"
 )
